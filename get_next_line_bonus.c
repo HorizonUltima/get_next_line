@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgergink <hgergink@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:11:27 by hgergink          #+#    #+#             */
-/*   Updated: 2025/08/22 15:57:09 by hgergink         ###   ########.fr       */
+/*   Updated: 2025/08/22 16:31:52 by hgergink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static void	ft_chug_stash(char **stash)
 {
@@ -113,17 +113,17 @@ static void	ft_append_stash(int fd, char **stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[4096];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return ((void *)0);
-	ft_append_stash(fd, &stash);
-	if (!stash)
+	ft_append_stash(fd, stash + fd);
+	if (!stash[fd])
 		return ((void *)0);
-	line = ft_line_maker(&stash);
+	line = ft_line_maker(stash + fd);
 	if (!line)
 		return ((void *)0);
-	ft_chug_stash(&stash);
+	ft_chug_stash(stash + fd);
 	return (line);
 }

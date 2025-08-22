@@ -6,7 +6,7 @@
 /*   By: hgergink <hgergink@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:11:27 by hgergink          #+#    #+#             */
-/*   Updated: 2025/08/21 16:49:34 by hgergink         ###   ########.fr       */
+/*   Updated: 2025/08/21 18:25:03 by hgergink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,15 +116,8 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*line;
 
-	if (fd < 0)
-	{
-		if (stash)
-		{
-			free(stash);
-			stash = (void *)0;
-		}
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return ((void *)0);
-	}
 	ft_append_stash(fd, &stash);
 	if (!stash)
 		return ((void *)0);

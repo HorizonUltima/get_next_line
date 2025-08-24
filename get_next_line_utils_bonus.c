@@ -6,7 +6,7 @@
 /*   By: hgergink <hgergink@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:10:56 by hgergink          #+#    #+#             */
-/*   Updated: 2025/08/22 16:21:09 by hgergink         ###   ########.fr       */
+/*   Updated: 2025/08/24 20:21:31 by hgergink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_setnull(char **str)
 	*str = (void *)0;
 }
 
-int	ft_strl(char *str)
+int	ft_strl(const char *str)
 {
 	size_t	i;
 

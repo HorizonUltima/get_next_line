@@ -6,7 +6,7 @@
 /*   By: hgergink <hgergink@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:12:29 by hgergink          #+#    #+#             */
-/*   Updated: 2025/08/22 16:32:13 by hgergink         ###   ########.fr       */
+/*   Updated: 2025/08/24 20:21:17 by hgergink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # endif
 
 void	ft_setnull(char **str);
-int		ft_strl(char *str);
+int		ft_strl(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_strchr_zero(char *str, char c);
 void	ft_cutstr(char **str, size_t start, size_t len);
